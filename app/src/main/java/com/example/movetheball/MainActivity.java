@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Point;
+import android.graphics.Region;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -55,10 +56,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sensorManager.unregisterListener(this);
         super.onStop(); //Kalder den før her, så systemet kan afkoble sensoren før systemet renser resourcerne.
     }
-    @Override
-    public void onFlushCompleted(Sensor sensor) {
-        // vi bruger den ikke, den skal være her da vi har implementeret Sensoreventlistener2
-    }
+
 
 
     @Override
@@ -100,11 +98,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
+    //region, en del af interfacet, men unødvendige metoder.
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
         // vi bruger den ikke, den skal være her da vi har implementeret Sensoreventlistener2
     }
-
+    @Override
+    public void onFlushCompleted(Sensor sensor) {
+        // vi bruger den ikke, den skal være her da vi har implementeret Sensoreventlistener2
+    }
+    //end region
 
 
     private class BallView extends View {
