@@ -8,6 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a2e67b13-c9cd-4b11-9a2e-fa7d0c7e9573" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/movetheball/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/movetheball/MainActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,5 +136,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/movetheball/MainActivity.java</url>
+          <line>106</line>
+          <properties class="com.example.movetheball.MainActivity" method="onFlushCompleted">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         BallView ballView = new BallView(this);
         setContentView(ballView);
 
-        Point size = new Point();
+        Point size = new Point(); // Et objekt som holder 2 integer koordinater
         Display display = getWindowManager().getDefaultDisplay();
         display.getSize(size);
         xMaks = (float) size.x - 100;
