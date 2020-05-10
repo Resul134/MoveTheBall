@@ -117,11 +117,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             ball = Bitmap.createScaledBitmap(ballSrc, dstWidth, dstHeight, true);
         }
         //Tegner view, vi har en canvas object, som tiladder os at udføre operationer så som bitmap/text/cirkler os
-
         @Override
         protected void onDraw(Canvas canvas) {
-            canvas.drawBitmap(ball, xPos, yPos, null);//canvas objektet bruger en metoder som tager imod bitmap, positioner og paint.
-            invalidate(); //Hvis viewet skal tegnes igen, invalidate bliver kaldt, som kalder onDraw() metoden af dette view.
+            canvas.drawBitmap(ball, xPos, yPos, null);//canvas objektet bruger en metode som tager imod bitmap, positioner og paint.
+            invalidate(); //Hvis viewet skal tegnes igen, invalidate() bliver kaldt, som kalder onDraw() metoden af dette view.
 
         }
     }
