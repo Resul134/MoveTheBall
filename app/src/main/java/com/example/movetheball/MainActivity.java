@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         BallView ballView = new BallView(this);
         setContentView(ballView);
 
-        Point size = new Point(); // Et objekt som holder 2 integer koordinater
+        Point screenDimensions = new Point(); // Et objekt som holder 2 integer koordinater
         Display display = getWindowManager().getDefaultDisplay();
-        display.getSize(size);
-        xMaks = (float) size.x - 100;
-        yMaks = (float) size.y - 100;
+        display.getSize(screenDimensions);
+        xMaks = (float) screenDimensions.x - 100;
+        yMaks = (float) screenDimensions.y - 100;
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
     }
 
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         float xS = (xVel / 2) * frameTime;
         float yS = (yVel / 2) * frameTime;
 
-        //Sætter boldens nye position, ved at trække den xSpeed, og ySpeed.
+        //Sætter boldens nye position, ved at trække den xSpeed, og ySpeed fra x og y positionen.
         xPos -= xS;
         yPos -= yS;
 
@@ -112,17 +112,17 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         public BallView(Context context) {
             super(context);
             //henter bolden
-            Bitmap ballSrc = BitmapFactory.decodeResource(getResources(), R.drawable.ball);
-            final int dstWidth = 100;
-            final int dstHeight = 100;
+            Bitmap ballSource = BitmapFactory.decodeResource(getResources(), R.drawable.ball);
+            final int Width = 100;
+            final int Height = 100;
             //sætter bolden og laver et objekt ud af den, hvor vi fylder metodens parametre ud. Meget simpelt.
-            ball = Bitmap.createScaledBitmap(ballSrc, dstWidth, dstHeight, true);
+            ball = Bitmap.createScaledBitmap(ballSource, Width, Height, true);
         }
         //Tegner view, vi har en canvas object, som tiladder os at udføre operationer så som bitmap/text/cirkler os
         @Override
         protected void onDraw(Canvas canvas) {
             canvas.drawBitmap(ball, xPos, yPos, null);//canvas objektet bruger en metode som tager imod bitmap, positioner og farve.
-            invalidate(); //Hvis viewet skal tegnes igen, invalidate() bliver kaldt, som kalder onDraw() metoden af dette view.
+            invalidate();
 
         }
     }
