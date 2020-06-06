@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             yAccel = -sensorEvent.values[1]; //Det er meget vigtigt at vi opdaterer frames.
             updateBall(); //Opdaterer boldens position
         }
+        //Du har ikke en accelerometer!
     }
 
 
