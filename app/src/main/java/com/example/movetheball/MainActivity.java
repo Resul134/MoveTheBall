@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private float xPos, xAccel, xVel = 0.0f; // boldens positioner og accelerationer bliver defineret i x aksen.
     private float yPos, yAccel, yVel = 0.0f; //boldens positioner og accelerationer bliver defineret i y aksen.
-    private float xMaks, yMaks; // Det er grænser for hvor bolden højst på løbe, så den ikke overskrider skærmen
-    private Bitmap ball; // Et objekt der kan opføre sig som bolden, som vi kan lege med værdierne.
-    private SensorManager sensorManager; // Sensormanager, da det er vigtig at registrere og afkoble sensoren når den ikke er i brug.
+    private float xMaks, yMaks;
+    private Bitmap ball;
+    private SensorManager sensorManager;
 
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
@@ -44,9 +44,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     protected void onStart() {
-        super.onStart(); //Kalder den efter den har kaldet til superklassen.
+        super.onStart();
         sensorManager.registerListener( this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_GAME);
-    }   //Vi fortæller hvilken sensor vi skal bruge, og dens refresh rate, hvilket er den sidste parameter.
+    }
 
     @Override
     protected void onStop() {
@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            xAccel = sensorEvent.values[0]; //Henter x og y værdierne og opdaterer billederne
-            yAccel = sensorEvent.values[1]; //Det er meget vigtigt at vi opdaterer frames.
+            xAccel = sensorEvent.values[0];
+            yAccel = sensorEvent.values[1];
             updateBall(); //Opdaterer boldens position
         }
         //Du har ikke en accelerometer!
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
     //Metoden her behandler boldens velocity, og regner ud hvor meget bolden har rykket sig i den frame.
-    //Ved at kombinere boldens nuværende position med forskydningen, hvor man får den nye position.
+
     private void updateBall() {
         float frameTime = 0.777f;
         xVel += (xAccel * frameTime);
@@ -78,11 +78,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         float xS = (xVel / 2) * frameTime;
         float yS = (yVel / 2) * frameTime;
 
-        //Sætter boldens nye position, ved at trække den xSpeed, og ySpeed fra x og y positionen.
+
         xPos -= xS;
         yPos -= yS;
 
-        //Conditional statements så bolden position ikke overskrider maks når metoden opdaterer positionen.
+        
         if (xPos > xMaks) {
             xPos = xMaks;
         } else if (xPos < 0) {
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
     //end region
 
-    //Extends view, denne klasse kan bruges som en i view i vores onCreate.
+    // Custom view
     private class BallView extends View {
 
         public BallView(Context context) {
@@ -119,10 +119,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             //sætter bolden og laver et objekt ud af den, hvor vi fylder metodens parametre ud. Meget simpelt.
             ball = Bitmap.createScaledBitmap(ballSource, Width, Height, true);
         }
-        //Tegner view, vi har en canvas object, som tiladder os at udføre operationer så som bitmap/text/cirkler os
+
         @Override
         protected void onDraw(Canvas canvas) {
-            canvas.drawBitmap(ball, xPos, yPos, null);//canvas objektet bruger en metode som tager imod bitmap, positioner og farve.
+            canvas.drawBitmap(ball, xPos, yPos, null);
             invalidate();
 
         }
