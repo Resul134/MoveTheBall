@@ -75,14 +75,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         yVel += (yAccel * frameTime);
 
         //Fart kan justeres her
-        float xS = (xVel / 2) * frameTime;
-        float yS = (yVel / 2) * frameTime;
+        float xSpeed = (xVel / 2) * frameTime;
+        float ySpeed = (yVel / 2) * frameTime;
 
 
-        xPos -= xS;
-        yPos -= yS;
+        xPos -= xSpeed;
+        yPos -= ySpeed;
 
-        
+
         if (xPos > xMaks) {
             xPos = xMaks;
         } else if (xPos < 0) {
