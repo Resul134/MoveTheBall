@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     //Metoden her behandler boldens velocity, og regner ud hvor meget bolden har rykket sig i den frame.
     //Ved at kombinere boldens nuværende position med forskydningen, hvor man får den nye position.
     private void updateBall() {
-        float frameTime = 0.666f;
+        float frameTime = 0.777f;
         xVel += (xAccel * frameTime);
         yVel += (yAccel * frameTime);
 
