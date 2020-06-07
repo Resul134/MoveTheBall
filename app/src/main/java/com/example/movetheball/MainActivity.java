@@ -17,7 +17,7 @@ import android.graphics.Canvas;
 import android.graphics.Point;
 
 import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-
+//Subclass af "Activity"
 public class MainActivity extends AppCompatActivity implements SensorEventListener2 {
 
     private float xPos, xAccel, xVel = 0.0f; // boldens positioner og accelerationer bliver defineret i x aksen.
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             xAccel = sensorEvent.values[0]; //Henter x og y værdierne og opdaterer billederne
-            yAccel = -sensorEvent.values[1]; //Det er meget vigtigt at vi opdaterer frames.
+            yAccel = sensorEvent.values[1]; //Det er meget vigtigt at vi opdaterer frames.
             updateBall(); //Opdaterer boldens position
         }
         //Du har ikke en accelerometer!
