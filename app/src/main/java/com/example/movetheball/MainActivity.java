@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             Bitmap ballSource = BitmapFactory.decodeResource(getResources(), R.drawable.ball);
             final int Width = 100;
             final int Height = 100;
-            //sætter bolden og laver et objekt ud af den, hvor vi fylder metodens parametre ud. Meget simpelt.
+            //Deklererer bolden og de krævet parametre
             ball = Bitmap.createScaledBitmap(ballSource, Width, Height, true);
         }
 
